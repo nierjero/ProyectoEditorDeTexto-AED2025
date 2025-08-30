@@ -1,21 +1,23 @@
 package edu.ucu.aed.implementaciones;
 
-public class Nodo<T extends Comparable<T>> implements edu.ucu.aed.interfaces.Nodo<T> {
-    private final T Dato;
-    private edu.ucu.aed.interfaces.Nodo<T> siguiente;
+import edu.ucu.aed.interfaces.TDANodo;
 
-    public Nodo(T Dato, edu.ucu.aed.interfaces.Nodo<T> siguiente) {
+public class Nodo<T extends Comparable<T>> implements TDANodo<T> {
+    private final T Dato;
+    private TDANodo<T> siguiente;
+
+    public Nodo(T Dato, TDANodo<T> siguiente) {
             this.Dato=Dato;
             this.siguiente=siguiente;
     }
 
     @Override
-    public edu.ucu.aed.interfaces.Nodo<T> getSiguiente() {
+    public TDANodo<T> getSiguiente() {
         return siguiente;
     }
 
     @Override
-    public void setSiguiente(edu.ucu.aed.interfaces.Nodo<T> siguiente) {
+    public void setSiguiente(TDANodo<T> siguiente) {
         this.siguiente = siguiente;
     }
 

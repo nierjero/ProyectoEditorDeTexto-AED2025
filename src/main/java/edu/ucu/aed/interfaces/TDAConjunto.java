@@ -3,24 +3,24 @@ package edu.ucu.aed.interfaces;
 /**
  * Representa un conjunto con sus operaciones vinculadas
  */
-public interface Conjunto<T extends Comparable<T>> extends Lista<T> {
+public interface TDAConjunto<T extends Comparable<T>> extends TDALista<T> {
     /**
      * Realiza la unión del conjunto actual con "otroConjunto".
      * Se retorna un nuevo conjunto donde los elementos no están duplicados.
      */
-    Conjunto<T> union(Conjunto<T> otroConjunto);
+    TDAConjunto<T> union(TDAConjunto<T> otroConjunto);
 
     /**
      * Realiza la intersección del conjunto actual con "otroConjunto".
      * Se retorna un nuevo conjunto donde los elementos no están duplicados.
      */
-    Conjunto<T> interseccion(Conjunto<T> otroConjunto);
+    TDAConjunto<T> interseccion(TDAConjunto<T> otroConjunto);
 
     /**
      * Realiza la diferencia del conjunto actual con "otroConjunto".
      * Se retorna un nuevo conjunto donde los elementos no están duplicados.
      */
-    Conjunto<T> diferencia(Conjunto<T> otroConjunto);
+    TDAConjunto<T> diferencia(TDAConjunto<T> otroConjunto);
 
 
 }
