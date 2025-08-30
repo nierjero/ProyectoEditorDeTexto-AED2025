@@ -1,16 +1,16 @@
-package edu.ucu.aed.tda.lista.implementaciones;
-import edu.ucu.aed.tda.lista.TDANodo;
+package edu.ucu.aed.implementaciones;
+import edu.ucu.aed.interfaces.Lista;
 
-public class ListaEnlazada<T extends Comparable<T>> implements edu.ucu.aed.tda.lista.TDAListaEnlazada<T> {
-   private TDANodo<T> primero;
+public class ListaEnlazada<T extends Comparable<T>> implements Lista<T> {
+    private edu.ucu.aed.interfaces.Nodo<T> primero;
 
     @Override
     public boolean insertar(T dato) {
-        TDANodo<T> nuevo = new Nodo<T>(dato, null);
+        edu.ucu.aed.interfaces.Nodo<T> nuevo = new edu.ucu.aed.implementaciones.Nodo<T>(dato, null);
         if (primero == null) {
             primero = nuevo;
         } else {
-            TDANodo<T> actual = primero;
+            edu.ucu.aed.interfaces.Nodo<T> actual = primero;
             while (actual.getSiguiente() != null) {
                 actual = actual.getSiguiente();
             }
@@ -19,15 +19,15 @@ public class ListaEnlazada<T extends Comparable<T>> implements edu.ucu.aed.tda.l
         return true;
     }
 
-    public TDANodo<T> getPrimero() {
+    public edu.ucu.aed.interfaces.Nodo<T> getPrimero() {
         return primero;
     }
-    public  void setPrimero(TDANodo<T> primero) {
+    public  void setPrimero(edu.ucu.aed.interfaces.Nodo<T> primero) {
         this.primero = primero;
     }
     @Override
     public T buscar(Comparable<T> identificador) {
-        TDANodo<T> actualJota=primero;
+        edu.ucu.aed.interfaces.Nodo<T> actualJota=primero;
         while(actualJota!=null && identificador.compareTo(actualJota.getDato())!=0) {
             actualJota= actualJota.getSiguiente();
         }
