@@ -3,7 +3,7 @@ package edu.ucu.aed.interfaces;
 /**
  * Representa un conjunto con sus operaciones vinculadas
  */
-public interface TDAConjunto<T extends Comparable<T>> extends TDALista<T> {
+public interface TDAConjunto<T extends Comparable<T>> extends TDAListaEnlazada<T> {
     /**
      * Realiza la unión del conjunto actual con "otroConjunto".
      * Se retorna un nuevo conjunto donde los elementos no están duplicados.

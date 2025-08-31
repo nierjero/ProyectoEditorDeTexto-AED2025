@@ -1,6 +1,6 @@
 package edu.ucu.aed.interfaces;
 
-public interface TDAPila<T extends Comparable<T>> extends TDALista<T> {
+public interface TDAPila<T extends Comparable<T>> extends TDAListaEnlazada<T> {
     /**
      *
      * @return Retorna el último elemento agregado, sin removerlo.

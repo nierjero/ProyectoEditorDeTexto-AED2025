@@ -1,6 +1,6 @@
 package edu.ucu.aed.interfaces;
 
-public interface TDALista<T extends Comparable<T>> {
+public interface TDAListaEnlazada<T extends Comparable<T>> {
     boolean insertar(T data);
 
     T buscar(Comparable<T> identificador);

@@ -1,8 +1,8 @@
 package edu.ucu.aed.implementaciones;
-import edu.ucu.aed.interfaces.TDALista;
+import edu.ucu.aed.interfaces.TDAListaEnlazada;
 import edu.ucu.aed.interfaces.TDANodo;
 
-public class ListaEnlazada<T extends Comparable<T>> implements TDALista<T> {
+public class ListaEnlazada<T extends Comparable<T>> implements TDAListaEnlazada<T> {
     private TDANodo<T> primero;
 
     @Override
@@ -23,46 +23,114 @@ public class ListaEnlazada<T extends Comparable<T>> implements TDALista<T> {
     public TDANodo<T> getPrimero() {
         return primero;
     }
+
+    /**
     public  void setPrimero(TDANodo<T> primero) {
         this.primero = primero;
     }
+    */
+
     @Override
     public T buscar(Comparable<T> identificador) {
-        TDANodo<T> actualJota=primero;
-        while(actualJota!=null && identificador.compareTo(actualJota.getDato())!=0) {
-            actualJota= actualJota.getSiguiente();
-        }
-        if (actualJota==null) {
-            return null;
-        }
-        else {
-            return actualJota.getDato();
 
+        TDANodo<T> actual = primero;
+
+        while (actual != null && identificador.compareTo(actual.getDato()) != 0) {
+            actual = actual.getSiguiente();
+        }
+
+        if (actual == null) {
+            return null;
+        } else {
+            return actual.getDato();
         }
     }
 
     @Override
     public T eliminar(Comparable<T> identificador) {
-        return null;
+        if (primero == null) {
+            return null;
+        }
+
+        if (identificador.compareTo(primero.getDato()) == 0) {
+            T borrado = primero.getDato();
+            primero = primero.getSiguiente();
+            return borrado;
+        }
+
+        TDANodo<T> actual = primero;
+
+        while (actual.getSiguiente() != null &&
+                identificador.compareTo(actual.getSiguiente().getDato()) != 0) {
+            actual = actual.getSiguiente();
+        }
+
+        if (actual.getSiguiente() == null) {
+            return null;
+        } else {
+            T borrado = actual.getSiguiente().getDato();
+            actual.setSiguiente(actual.getSiguiente().getSiguiente());
+            return borrado;
+        }
     }
+
 
     @Override
     public String imprimir() {
-        return "";
+        TDANodo<T> actual = primero;
+
+        if (actual == null) {
+            return "Lista vacía";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while (actual != null) {
+            if (sb.length() > 0) sb.append(" ");
+            sb.append(actual.getDato());
+            actual = actual.getSiguiente();
+        }
+        return sb.toString();
     }
 
     @Override
     public String imprimir(String delimitador) {
-        return "";
+        TDANodo<T> actual = primero;
+
+        if (actual == null) {
+            return "Lista vacía";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while (actual != null) {
+            if (sb.length() > 0) sb.append(delimitador);
+            sb.append(actual.getDato());
+            actual = actual.getSiguiente();
+        }
+        return sb.toString();
     }
+
 
     @Override
     public int cantElementos() {
-        return 0;
+        if (primero == null) {
+            return 0;
+        }
+
+        TDANodo<T> actual = primero;
+        int contador = 0;
+
+        while (actual != null) {
+            contador++;
+            actual = actual.getSiguiente();
+        }
+
+        return contador;
     }
 
     @Override
     public boolean esVacia() {
-        return false;
+        return primero == null;
     }
 }

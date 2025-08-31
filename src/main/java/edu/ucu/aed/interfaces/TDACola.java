@@ -1,6 +1,6 @@
 package edu.ucu.aed.interfaces;
 
-public interface TDACola<T extends Comparable<T>> extends TDALista<T> {
+public interface TDACola<T extends Comparable<T>> extends TDAListaEnlazada<T> {
     /**
      *
      * @return Retorna el primer elemento de la cola, sin removerlo.

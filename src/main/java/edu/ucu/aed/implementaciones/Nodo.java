@@ -3,6 +3,7 @@ package edu.ucu.aed.implementaciones;
 import edu.ucu.aed.interfaces.TDANodo;
 
 public class Nodo<T extends Comparable<T>> implements TDANodo<T> {
+
     private final T Dato;
     private TDANodo<T> siguiente;
 
