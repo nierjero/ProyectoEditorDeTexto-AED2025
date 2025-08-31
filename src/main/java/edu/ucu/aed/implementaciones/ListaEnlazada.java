@@ -7,7 +7,7 @@ public class ListaEnlazada<T extends Comparable<T>> implements TDAListaEnlazada<
 
     @Override
     public boolean insertar(T dato) {
-        TDANodo<T> nuevo = new edu.ucu.aed.implementaciones.Nodo<T>(dato, null);
+        TDANodo<T> nuevo = new Nodo<>(dato);
         if (primero == null) {
             primero = nuevo;
         } else {

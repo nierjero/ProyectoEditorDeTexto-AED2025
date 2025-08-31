@@ -7,9 +7,9 @@ public class Nodo<T extends Comparable<T>> implements TDANodo<T> {
     private final T Dato;
     private TDANodo<T> siguiente;
 
-    public Nodo(T Dato, TDANodo<T> siguiente) {
-            this.Dato=Dato;
-            this.siguiente=siguiente;
+    public Nodo(T Dato) {
+            this.Dato = Dato;
+            this.siguiente = null;
     }
 
     @Override
