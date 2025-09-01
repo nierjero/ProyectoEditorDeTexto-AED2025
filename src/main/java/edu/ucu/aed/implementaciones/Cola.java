@@ -4,8 +4,8 @@ import edu.ucu.aed.interfaces.TDACola;
 import edu.ucu.aed.interfaces.TDANodo;
 
 public class Cola<T extends Comparable<T>> implements TDACola<T> {
-    private TDANodo<T> inicio;
-    private TDANodo<T> fin;
+    protected TDANodo<T> inicio;
+    protected TDANodo<T> fin;
 
     public Cola() {
         this.inicio = null;
