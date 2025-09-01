@@ -9,7 +9,7 @@ public class Documento extends ListaEnlazada<Linea> {
 
     public void cargarDesdeConsola() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese un párrafo:");
+        System.out.println("Ingrese un párrafo:\n");
         String parrafo = sc.nextLine();
 
         String[] palabras = parrafo.split("\\s+");
@@ -28,7 +28,6 @@ public class Documento extends ListaEnlazada<Linea> {
         }
     }
 
-    // Muestra todas las líneas numeradas
     public void mostrarLineas() {
         if (esVacia()) {
             System.out.println("El documento está vacío.");
@@ -44,7 +43,6 @@ public class Documento extends ListaEnlazada<Linea> {
         }
     }
 
-    // Devuelve cuántas líneas tiene el documento
     public int contarLineas() {
         return cantElementos();
     }
