@@ -10,11 +10,23 @@ public class Main {
         System.out.println();
 
         Documento doc = new Documento();
+
+        System.out.println("=== Cargar documento ===");
         doc.cargarDesdeConsola();
 
-        System.out.println("\n=== Documento generado ===");
+        System.out.println("\n=== Mostrar líneas ===");
         doc.mostrarLineas();
 
-        System.out.println("\nCantidad de líneas: " + doc.contarLineas());
+        System.out.println("\n=== Contadores genéricos ===");
+        doc.contadoresGenericos();
+
+        System.out.println("\n=== Borrar palabras ===");
+        doc.borrarPalabraConsola();
+
+        System.out.println("\n=== Documento final ===");
+        doc.mostrarLineas();
+
+        System.out.println("\n=== Contadores genéricos finales ===");
+        doc.contadoresGenericos();
     }
 }
