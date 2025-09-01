@@ -6,15 +6,14 @@ import edu.ucu.aed.utils.FileUtils;
 public class Main {
     public static void main(String[] args) {
 
-        FileUtils.leerLineas("./test.txt", x -> {
-            System.out.println(x);
-        });
+        FileUtils.leerLineas("./test.txt", System.out::println);
+        System.out.println();
 
-        Linea linea = new Linea();
+        String renglon1 = "Hola mundo desde Java";
 
-        String parrafo = "Hola mundo desde Java";
+        Linea linea = new Linea(renglon1);
 
-        linea.agregarPalabrasComoNodos(parrafo);
+        linea.agregarPalabrasComoNodos(renglon1);
 
         System.out.println("Palabras en la línea:");
         linea.mostrarPalabras();
