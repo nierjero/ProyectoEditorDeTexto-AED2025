@@ -1,6 +1,6 @@
 package edu.ucu.aed;
 
-import edu.ucu.aed.clases.Linea;
+import edu.ucu.aed.clases.Documento;
 import edu.ucu.aed.utils.FileUtils;
 
 public class Main {
@@ -9,14 +9,12 @@ public class Main {
         FileUtils.leerLineas("./test.txt", System.out::println);
         System.out.println();
 
-        String renglon1 = "Hola mundo desde Java";
+        Documento doc = new Documento();
+        doc.cargarDesdeConsola();
 
-        Linea linea = new Linea(renglon1);
+        System.out.println("\n=== Documento generado ===");
+        doc.mostrarLineas();
 
-        linea.agregarPalabrasComoNodos(renglon1);
-
-        System.out.println("Palabras en la línea:");
-        linea.mostrarPalabras();
-
+        System.out.println("\nCantidad de líneas: " + doc.contarLineas());
     }
 }

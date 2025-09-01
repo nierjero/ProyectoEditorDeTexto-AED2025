@@ -1,23 +1,19 @@
 package edu.ucu.aed.clases;
 
-public class Palabra implements Comparable<Palabra> {
+import edu.ucu.aed.implementaciones.Nodo;
 
-    private String texto;
-
+public class Palabra extends Nodo<String> implements Comparable<Palabra> {
     public Palabra(String texto) {
-        this.texto = texto;
+        super(texto);
     }
 
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
+    @Override
+    public String toString() {
+        return getDato();
     }
 
     @Override
     public int compareTo(Palabra o) {
-        return this.texto.compareTo(o.texto);
+        return 0;
     }
 }

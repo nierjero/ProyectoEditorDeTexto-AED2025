@@ -1,35 +1,57 @@
 package edu.ucu.aed.clases;
+
 import edu.ucu.aed.implementaciones.ListaEnlazada;
 import edu.ucu.aed.interfaces.TDANodo;
 
-public class Documento {
+import java.util.Scanner;
 
-    protected final ListaEnlazada<Linea> lineas = new ListaEnlazada<>();
-    protected TDANodo<Linea> primeraLinea;
+public class Documento extends ListaEnlazada<Linea> {
 
-    public void agregarLineasComoNodo(String lineasDeTexto) {
-        int limite_lineas = 11;
-        if (primeraLinea.getDato() != null && primeraLinea.getDato().contadorPalabras() != 0) {
+    public void cargarDesdeConsola() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese un párrafo:");
+        String parrafo = sc.nextLine();
 
-        }
-    }
-
-    public void mostrarLineas() {
-        TDANodo<Linea> actual = primeraLinea;
-        while (actual != null) {
-            System.out.println(actual.getDato().getRenglon());
-            actual = actual.getSiguiente();
-        }
-    }
-
-    public int contadorLineas() {
-        TDANodo<Linea> actual = primeraLinea;
+        String[] palabras = parrafo.split("\\s+");
+        StringBuilder lineaActual = new StringBuilder();
         int contador = 0;
-        while (actual != null) {
+
+        for (int i = 0; i < palabras.length; i++) {
+            lineaActual.append(palabras[i]).append(" ");
             contador++;
-            actual = actual.getSiguiente();
+
+            if (contador == 11 || i == palabras.length - 1) {
+                insertar(new Linea(lineaActual.toString().trim()));
+                lineaActual.setLength(0);
+                contador = 0;
+            }
         }
-        return contador;
     }
 
+    // Muestra todas las líneas numeradas
+    public void mostrarLineas() {
+        if (esVacia()) {
+            System.out.println("El documento está vacío.");
+            return;
+        }
+
+        int numero = 1;
+        TDANodo<Linea> actual = getPrimero();
+        while (actual != null) {
+            System.out.println("Línea " + numero + ": " + actual.getDato());
+            actual = actual.getSiguiente();
+            numero++;
+        }
+    }
+
+    // Devuelve cuántas líneas tiene el documento
+    public int contarLineas() {
+        return cantElementos();
+    }
+
+
+    @Override
+    public String toString() {
+        return imprimir("\n");
+    }
 }
