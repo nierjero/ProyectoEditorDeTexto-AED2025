@@ -1,6 +1,8 @@
 package edu.ucu.aed;
 
 import edu.ucu.aed.clases.Documento;
+import edu.ucu.aed.implementaciones.Cola;
+import edu.ucu.aed.interfaces.TDACola;
 import edu.ucu.aed.utils.FileUtils;
 
 public class Main {
@@ -9,24 +11,16 @@ public class Main {
         FileUtils.leerLineas("./test.txt", System.out::println);
         System.out.println();
 
-        Documento doc = new Documento();
+        TDACola<String> cola = new Cola<>();
 
-        System.out.println("=== Cargar documento ===");
-        doc.cargarDesdeConsola();
+        String string1 = "Hola";
+        String string2 = "Chau";
 
-        System.out.println("\n=== Mostrar líneas ===");
-        doc.mostrarLineas();
+        cola.ponerEnCola(string1);
+        cola.ponerEnCola(string2);
 
-        System.out.println("\n=== Contadores genéricos ===");
-        doc.contadoresGenericos();
+        cola.imprimir("-");
 
-        System.out.println("\n=== Borrar palabras ===");
-        doc.borrarPalabraConsola();
 
-        System.out.println("\n=== Documento final ===");
-        doc.mostrarLineas();
-
-        System.out.println("\n=== Contadores genéricos finales ===");
-        doc.contadoresGenericos();
     }
 }

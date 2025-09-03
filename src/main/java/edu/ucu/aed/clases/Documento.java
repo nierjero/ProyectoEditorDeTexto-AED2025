@@ -64,24 +64,31 @@ public class Documento extends ListaEnlazada<Linea> {
 
 
     public void borrarPalabraConsola() {
+        // da un error si no le pasamos nada por consola
         if (esVacia()) {
             System.out.println("El documento está vacío.");
             return;
         }
 
+        // se fija en lo que escribis
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Qué palabra quiere borrar?");
         String palabraABorrar = sc.nextLine().trim();
 
+        // instancia los arrays
         ArrayList<TDANodo<Linea>> lineasCoinciden = new ArrayList<>();
         ArrayList<Integer> indicesLineas = new ArrayList<>();
+
         TDANodo<Linea> actualLinea = getPrimero();
         int numeroLinea = 1;
 
+        // recorre la lista de lineas
         while (actualLinea != null) {
             Linea linea = actualLinea.getDato();
             boolean encontrada = false;
             TDANodo<Palabra> actualPalabra = linea.getPrimero();
+
+            // recorre la lista de palabras y si la encuentra sale estableciendo en true
             while (actualPalabra != null) {
                 if (actualPalabra.getDato().getDato().equalsIgnoreCase(palabraABorrar)) {
                     encontrada = true;
@@ -89,6 +96,8 @@ public class Documento extends ListaEnlazada<Linea> {
                 }
                 actualPalabra = actualPalabra.getSiguiente();
             }
+
+            // si la encuentra la agrega con el numero de la linea
             if (encontrada) {
                 lineasCoinciden.add(actualLinea);
                 indicesLineas.add(numeroLinea);
@@ -97,16 +106,19 @@ public class Documento extends ListaEnlazada<Linea> {
             numeroLinea++;
         }
 
+        // si no hay listas con esa palabra tira el error
         if (lineasCoinciden.isEmpty()) {
             System.out.println("La palabra \"" + palabraABorrar + "\" no se encontró en el documento.");
             return;
         }
 
+        // pregunta por consola en que linea esta la palabra que quiere borrar
         System.out.println("¿En qué línea está el \"" + palabraABorrar + "\" que quiere borrar?");
         for (int i = 0; i < lineasCoinciden.size(); i++) {
             System.out.println((i+1) + ". " + lineasCoinciden.get(i).getDato());
         }
 
+        // segun la opcion que hace
         int opcionLinea = 1;
         if (lineasCoinciden.size() > 1) {
             System.out.print("Elija el número de línea: ");
@@ -114,12 +126,16 @@ public class Documento extends ListaEnlazada<Linea> {
             sc.nextLine();
         }
 
+        // elige la linea y le saca 1 para que coincida con el nro del array
         Linea lineaElegida = lineasCoinciden.get(opcionLinea - 1).getDato();
 
         ArrayList<TDANodo<Palabra>> palabrasCoinciden = new ArrayList<>();
         ArrayList<Integer> posiciones = new ArrayList<>();
         TDANodo<Palabra> actualPalabra = lineaElegida.getPrimero();
+
         int posicion = 1;
+
+        // recorre
         while (actualPalabra != null) {
             if (actualPalabra.getDato().getDato().equalsIgnoreCase(palabraABorrar)) {
                 palabrasCoinciden.add(actualPalabra);

@@ -90,7 +90,8 @@ public class Cola<T extends Comparable<T>> implements TDACola<T> {
             sb.append(actual.getDato());
             actual = actual.getSiguiente();
         }
-        return sb.toString();    }
+        return sb.toString();
+    }
 
     @Override
     public int cantElementos() {
