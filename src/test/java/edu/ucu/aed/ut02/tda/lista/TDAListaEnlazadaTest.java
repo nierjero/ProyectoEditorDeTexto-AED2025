@@ -17,7 +17,7 @@ public class TDAListaEnlazadaTest extends Assertions {
         lista1.insertar(string1);
         lista1.insertar(string2);
 
-        assertEquals(lista1.buscarPorIndice(1), "Hola");
+        assertEquals(lista1.buscarPorIndice(0), "Hola");
     }
 
 }
