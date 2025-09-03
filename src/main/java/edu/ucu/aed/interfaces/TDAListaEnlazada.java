@@ -15,4 +15,6 @@ public interface TDAListaEnlazada<T extends Comparable<T>> {
 
     boolean esVacia();
 
+    T buscarPorIndice(int indice);
+
 }

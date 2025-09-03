@@ -109,4 +109,9 @@ public class Cola<T extends Comparable<T>> implements TDACola<T> {
     public boolean esVacia() {
         return inicio == null;
     }
+
+    @Override
+    public T buscarPorIndice(int indice) {
+        return null;
+    }
 }

@@ -130,6 +130,20 @@ public class ListaEnlazada<T extends Comparable<T>> implements TDAListaEnlazada<
     }
 
     @Override
+    public T buscarPorIndice(int indice) {
+        TDANodo<T> actual = primero;
+        int contador = 0;
+
+        while (actual != null) {
+            contador++;
+            if (contador == indice) {
+                return actual.getDato();
+            }
+        }
+        return null;
+    }
+
+    @Override
     public boolean esVacia() {
         return primero == null;
     }
