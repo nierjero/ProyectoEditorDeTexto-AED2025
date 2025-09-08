@@ -11,16 +11,16 @@ public class Main {
         FileUtils.leerLineas("./test.txt", System.out::println);
         System.out.println();
 
-        TDACola<String> cola = new Cola<>();
-
-        String string1 = "Hola";
-        String string2 = "Chau";
-
-        cola.ponerEnCola(string1);
-        cola.ponerEnCola(string2);
-
-        cola.imprimir("-");
-
+        Documento Documento1 = new Documento();
+        
+        Documento1.cargarDesdeConsola();
+        Documento1.contadoresGenericos();
+        Documento1.contarLineas();
+        Documento1.borrarPalabraConsola();
+        Documento1.cargarDesdeConsola();
+        Documento1.mostrarLineas();
+        Documento1.contadoresGenericos();
+        Documento1.contarLineas();
 
     }
 }
