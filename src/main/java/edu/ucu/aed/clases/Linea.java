@@ -26,7 +26,6 @@ public class Linea extends ListaEnlazada<Palabra> implements Comparable<Linea> {
         return p1.getDato().equalsIgnoreCase(p2.getDato());
     }
     
-    
     @Override
     public String toString() {
         return imprimir(" ");
