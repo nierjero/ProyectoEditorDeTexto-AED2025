@@ -82,6 +82,8 @@ public class Documento extends ListaEnlazada<Linea> {
         TDANodo<Linea> actualLinea = getPrimero();
         int numeroLinea = 1;
         
+        boolean soloUnaLinea = actualLinea.getSiguiente() == null;
+        
         // recorre la lista de lineas
         while (actualLinea != null) {
             Linea linea = actualLinea.getDato();
@@ -113,9 +115,13 @@ public class Documento extends ListaEnlazada<Linea> {
         }
         
         // pregunta por consola en que linea esta la palabra que quiere borrar
-        System.out.println("¿En qué línea está el \"" + palabraABorrar + "\" que quiere borrar?");
+        if (!soloUnaLinea) {
+            System.out.println("¿En qué línea está el \"" + palabraABorrar + "\" que quiere borrar?");
+        }
         for (int i = 0; i < lineasCoinciden.size(); i++) {
-            System.out.println((i + 1) + ". " + lineasCoinciden.get(i).getDato());
+            if (!soloUnaLinea) {
+                System.out.println((i + 1) + ". " + lineasCoinciden.get(i).getDato());
+            }
         }
         
         // segun la opcion que hace
@@ -149,10 +155,18 @@ public class Documento extends ListaEnlazada<Linea> {
             lineaElegida.eliminar(palabrasCoinciden.get(0).getDato());
             System.out.println("Palabra \"" + palabraABorrar + "\" borrada automáticamente.");
         } else {
-            System.out.println("¿En qué posición está el \"" + palabraABorrar + "\" que quiere borrar?");
-            for (int i = 0; i < posiciones.size(); i++) {
-                System.out.println((i + 1) + ". Posición " + posiciones.get(i));
+            if (soloUnaLinea) {
+                System.out.println("¿En qué posición de la primera linea está el \"" + palabraABorrar + "\" que quiere borrar?");
+                for (int i = 0; i < posiciones.size(); i++) {
+                    System.out.println((i + 1) + ". Posición " + posiciones.get(i));
+                }
+            } else {
+                System.out.println("¿En qué posición está el \"" + palabraABorrar + "\" que quiere borrar?");
+                for (int i = 0; i < posiciones.size(); i++) {
+                    System.out.println((i + 1) + ". Posición " + posiciones.get(i));
+                }
             }
+            
             System.out.print("Elija la posición: ");
             int opcionPos = sc.nextInt();
             sc.nextLine();
