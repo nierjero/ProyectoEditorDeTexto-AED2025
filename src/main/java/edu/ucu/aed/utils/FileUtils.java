@@ -22,22 +22,22 @@ public class FileUtils {
      * @param consumer función que recibe cada linea del archivo
      */
     public static void leerLineas(String path, Consumer<String> consumer) {
-        
+
         try {
             URL resource = Main.class.getClassLoader().getResource(path);
             Path p = resource == null ? Paths.get(path) : Paths.get(resource.toURI());
-            
+
             for (String line : Files.readAllLines(p)) {
                 consumer.accept(line);
             }
         } catch (IOException | URISyntaxException e) {
-            
+
             System.err.println("Error al leer el archivo " + path);
             System.err.println(e.getLocalizedMessage());
         }
-        
+
     }
-    
+
     /**
      * Guarda contenido en el path indicado
      *

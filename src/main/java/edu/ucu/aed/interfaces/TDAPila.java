@@ -6,11 +6,11 @@ public interface TDAPila<T extends Comparable<T>> extends TDAListaEnlazada<T> {
      * Si la pila es vacía, retornar nulo
      */
     T tope();
-    
+
     /**
      * @return Retorna el último elemento agregado y lo remueve de la pila.
      * Si la pila es vacía, retornar nulo
      */
     T sacar();
-    
+
 }
