@@ -1,16 +1,14 @@
 package edu.ucu.aed;
 
 import edu.ucu.aed.clases.Documento;
-import edu.ucu.aed.implementaciones.Cola;
-import edu.ucu.aed.interfaces.TDACola;
 import edu.ucu.aed.utils.FileUtils;
 
 public class Main {
     public static void main(String[] args) {
-
+        
         FileUtils.leerLineas("./test.txt", System.out::println);
         System.out.println();
-
+        
         Documento Documento1 = new Documento();
         
         Documento1.cargarDesdeConsola();
@@ -21,6 +19,6 @@ public class Main {
         Documento1.mostrarLineas();
         Documento1.contadoresGenericos();
         Documento1.contarLineas();
-
+        
     }
 }

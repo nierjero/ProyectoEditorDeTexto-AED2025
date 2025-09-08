@@ -5,8 +5,8 @@ package edu.ucu.aed.interfaces;
  */
 public interface TDANodo<T extends Comparable<T>> {
     TDANodo<T> getSiguiente();
-
+    
     void setSiguiente(TDANodo<T> siguiente);
-
+    
     T getDato();
 }
