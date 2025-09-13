@@ -23,6 +23,6 @@ public class TDAPilaTest extends Assertions {
         String string1 = "Hola";
 
         pila.insertar(string1);
-        assertEquals (pila.sacar(), string1);
+        assertEquals(pila.sacar(), string1);
     }
 }
