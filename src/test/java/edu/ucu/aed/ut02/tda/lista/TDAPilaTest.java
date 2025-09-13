@@ -14,6 +14,15 @@ public class TDAPilaTest extends Assertions {
 
         pila.insertar(string1);
 
-        assert(!pila.esVacia());
+        assert (!pila.esVacia());
+    }
+
+    @Test
+    public void testSacarDeLaPila() {
+        TDAPila<String> pila = new Pila<>();
+        String string1 = "Hola";
+
+        pila.insertar(string1);
+        assertEquals (pila.sacar(), string1);
     }
 }
